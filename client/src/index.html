@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      crossorigin="anonymous"
+    />
+    <link rel="shortcut icon" href="https://i.imgur.com/878uls7.png" />
+    <link rel="stylesheet" href="./style/error.css" />
+    <link rel="stylesheet" href="./style/headerStyle.css" />
+    <link rel="stylesheet" href="./style/styleBacklog.css" />
+    <link rel="stylesheet" href="./style/styleDragAndDrop.css" />
+    <link rel="stylesheet" href="./style/modalWindow.css" />
+    <link rel="stylesheet" href="./style/changeCardStyle.css" />
+    <link rel="stylesheet" href="./style/loginPage.css" />
+    <link rel="stylesheet" id="theme" href="./style/styleDarkTheme.css" />
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="stylesheet" href="./style/tooltip.css" />
+    <title>Jira</title>
+  </head>
+
+  <body>
+    <div id="container" class="container">
+      <header class="main-header">
+        <div class="form">
+          <form action="#" class="search">
+            <input type="text" class="search-input" />
+            <button class="search-button">
+              <i class="fas fa-search search-icon"></i>
+            </button>
+          </form>
+        </div>
+        <div class="filtration-creator">
+          <div class="user-photo">
+            <img
+              class="photo"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Outdoors-man-portrait_%28cropped%29.jpg/330px-Outdoors-man-portrait_%28cropped%29.jpg"
+              alt="Photo of users"
+            />
+          </div>
+        </div>
+        <div class="btn-filtration">
+          <div class="btn-date">
+            <button class="btn-sorting" id="btn-sorting-assignee">
+              Assignee<i class="fas"></i>
+            </button>
+          </div>
+          <div class="btn-date">
+            <button class="btn-sorting" id="btn-sorting-date">Date<i class="fas"></i></button>
+          </div>
+        </div>
+        <div class="switch">
+          <label class="label">
+            <div class="label-text">Backlog</div>
+
+            <div class="toggle">
+              <input class="toggle-state" type="checkbox" name="check" value="check" />
+              <div class="indicator"></div>
+            </div>
+            <div class="label-text">Board</div>
+          </label>
+        </div>
+        <div class="switch">
+          <label class="label">
+            <div class="label-text"><i class="far fa-sun"></i></div>
+            <div class="toggle">
+              <input
+                id="toggleTheme"
+                class="toggle-state"
+                type="checkbox"
+                name="check"
+                value="check"
+              />
+              <div class="indicator"></div>
+            </div>
+            <div class="label-text"><i class="far fa-moon"></i></div>
+          </label>
+        </div>
+        <button class="logout" type="button" id="deleteCookie">Logout</button>
+      </header>
+
+      <main class="wrapper">
+        <section class="backlog-section">
+          <div class="backlog-header">
+            <div class="backlog-header">
+              <h2>Backlog</h2>
+
+              <div class="select">
+                <select name="" id="select">
+                  <option selected disabled>Select the number of records in the backlog</option>
+                  <option value="2">2 points</option>
+                  <option value="5">5 points</option>
+                  <option value="10">10 points</option>
+                  <option value="15">15 points</option>
+                </select>
+              </div>
+            </div>
+            <div class="backlog-header">
+              <button class="btn-create-issue"><i class="fas fa-plus"></i> Create issue</button>
+            </div>
+          </div>
+          <div class="backlog-tasks">
+            <ul class="tasks">
+              <li class="task">
+                <div class="task-left">
+                  <span class="check"><i class="fa fa-check-circle" aria-hidden="true"></i> </span>
+                  <span class="priority"> <i class="fas fa-angle-double-up"></i></span>
+                  <span class="number">JMP3-1</span>
+                  <p class="text">Initial project setup</p>
+                </div>
+                <div class="task-right">
+                  <span class="face"><i class="fas fa-user-circle"></i></span>
+                  <span class="task-date">6</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <nav>
+            <ul class="nav-container"></ul>
+          </nav>
+        </section>
+
+        <section class="drag-and-drop hide">
+          <div class="drag-and-drop-header">
+            <div class="drag-and-drop-header-left">
+              <h2>Board</h2>
+            </div>
+            <div class="drag-and-drop-header-right">
+              <button class="btn-create-issue"><i class="fas fa-plus"></i> Create issue</button>
+            </div>
+          </div>
+          <div class="container-columns">
+            <div class="column-div">
+              <div class="column-name">Backlog</div>
+              <div class="column" id="backlog">
+                <div class="card" id="12312" draggable="true">
+                  <div class="card-title">Task title 1</div>
+                  <div class="card-description">Card description</div>
+                </div>
+              </div>
+            </div>
+            <div class="column-div">
+              <div class="column-name">Selected for development</div>
+              <div class="column" id="selected"></div>
+            </div>
+            <div class="column-div">
+              <div class="column-name">In progress</div>
+              <div class="column" id="in-progress"></div>
+            </div>
+            <div class="column-div">
+              <div class="column-name">Done</div>
+              <div class="column" id="done"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="popup">
+          <div class="modal" id="modal">
+            <form id="modal-form" class="modal-body">
+              <div class="form-group field">
+                <input
+                  class="form-field"
+                  type="text"
+                  id="taskTitle"
+                  name="title"
+                  placeholder="Task Title:"
+                  autocomplete="off"
+                  required
+                />
+                <label for="taskTitle" class="form-label">Task Title:</label>
+              </div>
+              <div class="form-group field">
+                <input
+                  class="form-field"
+                  type="text"
+                  id="description"
+                  name="description"
+                  placeholder="Description:"
+                  autocomplete="off"
+                  required
+                />
+                <label for="description" class="form-label">Description:</label>
+              </div>
+              <div class="form-group field">
+                <input
+                  class="form-field"
+                  type="date"
+                  id="dueDate"
+                  name="dueDate"
+                  placeholder="Due Date:"
+                  required
+                />
+                <label for="dueDate" class="form-label">Due Date:</label>
+              </div>
+              <div class="form-group field">
+                <input
+                  class="form-field"
+                  type="number"
+                  id="estimatedTime"
+                  name="estimatedTime"
+                  placeholder="Estimated Time:"
+                  min="1"
+                  max="100"
+                  autocomplete="off"
+                  required
+                />
+                <label for="estimatedTime" class="form-label">Estimated Time:</label>
+              </div>
+              <div class="form-group field">
+                <select name="assignee" id="assignee">
+                  <option value="5f6b33d605e6bb07f06a3e19">Maksym Kalinin</option>
+                  <option value="5f6b338b05e6bb07f06a3e18">Oleksandr Klishyn</option>
+                  <option value="5f6b335405e6bb07f06a3e17">Oleksii Serhiienko</option>
+                  <option value="5f6b325705e6bb07f06a3e15">Vladyslav Vasylenko</option>
+                  <option value="5f6b330a05e6bb07f06a3e16">Yevhenii Labskir</option>
+                  <option value="5f68bf394d6946446c1f671f">Valerii Hliantsev</option>
+                </select>
+              </div>
+              <div class="button-div">
+                <button id="createTicket" class="create-ticket btn-1 btn-1e">Create</button>
+                <button id="updateTicket" class="update-ticket btn-1 btn-1e hide">Update</button>
+                <button id="deleteTicket" class="delete-ticket btn-1 btn-1e hide">Delete</button>
+              </div>
+            </form>
+          </div>
+          <div id="overlay"></div>
+        </section>
+      </main>
+    </div>
+
+    <section id="login-page">
+      <div class="login-container" id="login-container">
+        <div class="form-container sign-up-container">
+          <form id="register-form">
+            <h1 class="form-title">Create Account</h1>
+            <input
+              class="input"
+              type="text"
+              name="name"
+              placeholder="Name"
+              required
+              autocomplete="off"
+            />
+            <input
+              class="input"
+              type="email"
+              name="email"
+              placeholder="Email"
+              minlength="6"
+              maxlength="255"
+              required
+              autocomplete="off"
+            />
+            <input
+              class="input"
+              placeholder="Password"
+              type="password"
+              name="password"
+              minlength="6"
+              maxlength="1024"
+              required
+            />
+            <button class="form-btn" id="register">Sign Up</button>
+          </form>
+        </div>
+        <div class="form-container sign-in-container">
+          <form id="login-form">
+            <h1 class="form-title">Sign in</h1>
+            <input
+              class="input"
+              type="email"
+              name="email"
+              placeholder="Email"
+              minlength="6"
+              maxlength="255"
+              required
+              autocomplete="off"
+            />
+            <input
+              class="input"
+              placeholder="Password"
+              type="password"
+              name="password"
+              minlength="6"
+              maxlength="1024"
+              required
+            />
+            <button class="form-btn" id="login">Sign In</button>
+          </form>
+        </div>
+        <div class="overlay-container">
+          <div class="overlay">
+            <div class="overlay-panel overlay-left">
+              <h1 class="form-title">Welcome Back!</h1>
+              <p class="overlay-description">
+                To keep connected with us please login with your personal info
+              </p>
+              <button class="ghost form-btn" id="ghost-signIn">Sign In</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+              <h1 class="form-title">Hello, Friend!</h1>
+              <p class="overlay-description">
+                Enter your personal details and start journey with us
+              </p>
+              <button class="ghost form-btn" id="ghost-signUp">Sign Up</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="error" class="hide">
+      <div class="error" title="Invalid email or password">Invalid email or password</div>
+      <a class="testing" data-text="TRY AGAIN" id="again">TRY AGAIN</a>
+    </div>
+  </body>
+</html>

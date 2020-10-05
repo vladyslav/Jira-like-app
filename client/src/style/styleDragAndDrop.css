@@ -1,0 +1,108 @@
+.drag-and-drop {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f7f4f4;
+}
+
+.drag-and-drop-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+}
+
+.container-columns {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.column-div {
+  flex: 1 1 0px;
+}
+
+.column-name {
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.column {
+  margin: 0 10px;
+  min-height: 300px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 7px 5px rgba(0, 0, 0, 0.2);
+  background-color: #f7f4f4;
+  padding-bottom: 50px;
+}
+
+.card {
+  background-color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  text-align: center;
+  border: 1px solid #000;
+  border-radius: 5px;
+  min-height: 110px;
+  cursor: all-scroll;
+  margin-bottom: 10px;
+}
+
+.card-title {
+  padding: 10px 12px;
+  background-color: rgba(122, 105, 199, 0.767);
+  color: #fff;
+}
+
+.card-description {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  flex-grow: 1;
+  margin: 5px;
+  font-size: 14px;
+  text-align: justify;
+}
+
+.card-description p {
+  padding-top: 5px;
+}
+
+.estimated-time {
+  text-align: left;
+}
+
+.hide {
+  display: none !important;
+}
+
+.ticket-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+}
+
+@media (max-width: 990px) {
+  .column-div {
+    flex: 50%;
+    max-width: 50%;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .column-div {
+    flex: 100%;
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 450px) {
+  .drag-and-drop-header {
+    padding-top: 10px;
+  }
+}

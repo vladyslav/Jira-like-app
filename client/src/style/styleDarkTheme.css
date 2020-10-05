@@ -1,0 +1,102 @@
+body {
+  background-color: rgb(49, 46, 46);
+}
+
+h2 {
+  color: #fff;
+}
+
+.search-input {
+  color: #000;
+  background-color: #8a8a8a;
+}
+
+.search-input:focus {
+  background-color: #ccc;
+}
+
+.search-button {
+  background-color: #8a8a8a;
+}
+
+.search-icon {
+  color: #b4b4b4;
+}
+
+.toggle {
+  box-shadow: -8px -4px 8px 0px #000, 8px 4px 12px 0px #525355, 4px 4px 4px 0px #525355 inset,
+    -4px -4px 4px 0px #000 inset;
+}
+
+.indicator {
+  background: #616364;
+  box-shadow: -8px -4px 8px 0px #000, 8px 4px 12px 0px #6e7277;
+}
+
+.btn-sorting:hover {
+  color: #d4d4d4;
+}
+
+.btn-sorting:focus {
+  outline: none;
+}
+
+.backlog-section,
+.drag-and-drop {
+  background-color: #3a3939;
+}
+
+.task {
+  background: rgb(34, 33, 33);
+  border: 1px #333232 solid;
+  color: rgb(255, 255, 255);
+  box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.btn-create-issue,
+.logout {
+  background-color: #8a8a8a;
+}
+
+.column {
+  box-shadow: 0px 0px 7px 5px rgba(0, 0, 0, 0.2);
+  background-color: #333333;
+}
+
+.column-name {
+  color: #fff;
+}
+
+.card {
+  border: 1px solid #000;
+}
+
+.card-title {
+  background-color: rgba(212, 207, 233, 0.767);
+  color: #000;
+}
+
+.login-title {
+  color: white;
+}
+
+.input-div > div > input {
+  color: white;
+}
+
+.form-field {
+  color: #fff;
+}
+
+.btn-1 {
+  color: #fff;
+}
+
+.modal {
+  background-color: #222222;
+}
+
+#assignee {
+  background-color: #424040;
+  color: #fff;
+}
